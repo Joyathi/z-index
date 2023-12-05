@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+.container{
+    height: 50vh;
+    width: 50vw;
+    background-image: url('images/data-5672358_1280.jpg');
+    text-align: center;
+    position: fixed;
+    right: 0;
+
+    
+
+}
