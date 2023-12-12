@@ -4,48 +4,56 @@
     box-sizing: border-box;
 }
 .container{
-    width: 100vw;
-    height: 4vh;
-    padding: 25px;
+   
+    padding: px;
     background-color: black;
     color: white;
     display: flex;
-    flex-direction: row;
-    /* align-items:center;
-    justify-content: center; */
     
+    justify-content: space-between;
+    align-items: center;
+    /* margin-right: 25px */
 }
-/* .box{
-    
-    color: white;
-    margin: 20px;
-} */
+
 .left-section{
     display: flex;
-     align-items: start;
-    justify-content: start; 
+     align-items: center;
+    justify-content: center; 
     color: white;
+    margin-right: 50px;
 
 }
-.left-section{
-    margin-right:5px ;
+.left-section img{
+    margin-right: 20px;
+}
+.morebrands{
+    display: flex;
+    /* margin-left: 20px; */
+    align-items: center;
+    justify-content: center;
+    margin-left: 40px; 
 }
 .right-section{
     background-color: black;
     color: white;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
 
-}.contact-us{
+}
+.stores{
+    margin-right: 20px;
+}
+.contact-us{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 8px;
+    margin-right: 30px;
+ 
 }
 .login{
     display: flex;
     justify-items: center;
     align-items: center;
-    margin-right: 10px;
+    margin-right: 30px;
 }
