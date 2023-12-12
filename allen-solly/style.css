@@ -8,30 +8,34 @@
     height: 4vh;
     padding: 25px;
     background-color: black;
+    color: white;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    /* align-items:center;
+    justify-content: center; */
     
 }
-.box{
+/* .box{
     
     color: white;
     margin: 20px;
-}
+} */
 .left-section{
     display: flex;
-    align-items: center;
-    justify-content: center;
+     align-items: start;
+    justify-content: start; 
+    color: white;
 
 }
 .left-section{
     margin-right:5px ;
 }
 .right-section{
+    background-color: black;
+    color: white;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: flex-end;
 
 }.contact-us{
     display: flex;
