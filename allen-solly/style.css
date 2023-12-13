@@ -84,6 +84,7 @@
 }
 .sale{
     display: flex;
+    color: red;
     margin-left: 10px;
 }
 .giftcard{
