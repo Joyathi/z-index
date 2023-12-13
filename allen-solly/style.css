@@ -59,7 +59,34 @@
 }
 .platform{
     display: flex;
-     justify-content: space-between; 
+     justify-content: center; 
     align-items: center;
     margin-right: 100px;
+}
+.image{
+    display: flex;
+    margin-left: 65px;
+}
+.products{
+    display: flex;
+    margin-left: 45px;
+}
+.newarrivals{
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    margin-left: 10px;
+}
+.special-sizes{
+    display: flex;
+    margin-left: 20px;
+
+}
+.sale{
+    display: flex;
+    margin-left: 10px;
+}
+.giftcard{
+    display: flex;
+    margin-left: 10px;
 }
