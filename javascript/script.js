@@ -123,5 +123,119 @@ console.log("window.place");
     let strTolowercase=str.toLowerCase();
     console.log("strTolowercase: ",strTolowercase)
 
-    let trimmedstring=str.trim();//remove space from left and right
+    let trimmedstring = str.trim();//remove space from left and right
+    console.log("trimmedstring:",trriedstring)
+    console.log("trimmedstring length:",trimmedstring.length)
+
+    let lefttrimmedstring=str.trim();//remove space from left and right
+    console.log("lefttrimmedstring:",lefttrriedstring)
+    console.log("lefttrimmedstring length:",lefttrimmedstring.length)
+
+    let Righttrimmedstring=str.trim();//remove space from left and right
+    console.log("righttrimmedstring:",righttrriedstring)
+    console.log("righttrimmedstring length:",righttrimmedstring.length)
+
+    let substring = str.substring(1,3);
+    console.log("substring:",substring);
+
+    letreplacedstring = str.replace("lo","iw");
+    console.log("replacedstring:",replacedstring);
+
+    console.log("is the string starts with h or not ?", str.startsWith("H"))
+    console.log("is the string end with h or not ?", str.startsWith("o"))
+
+    let splittedstring =str.splt (',');//converts string to an array
+    console.log("joinedstring :", joinedstring);
+
 }
+
+{
+    //operators
+
+    //++  add 1
+    //-- substract 1
+    // preincrement
+    let a =10;
+    let preincrement = ++a;
+    console.log("preincrement :", preincrement);
+
+    //postincrement
+    let b=20;
+    let postincrement = b++;
+    console.log("preincrement:",postincrement);
+
+    //predecrement
+    let c =30
+    let predecrement =--c;
+    console.log("predecrement:",predecrement);
+
+    
+    //postdecrement
+    let d =--40
+    let postdecrement =--c;
+    console.log("postdecrement:",postdecrement);
+
+    //assignment opeartors
+    let x =100;
+    console.log("x :", x);
+     
+
+    let y =200;
+    console.log("y :",y);
+
+    x=y;
+    console.log("x : ", x);
+
+    x+=y;//x=x+y
+    console.log("x :",x);
+
+
+}
+{
+    let a=10;
+    let b=11;
+    //comparison opertors
+    console.log("a==b:",a==b);
+    console.log("a !==b:",a!==b);
+    console.log("a===b:",a===b);//checks both value and datatype, true if both type and value are same
+    console.log("a===b:",a===b);//checks both value and datatype, true if both type and  or value not same
+    console.log("a<b:",a<b);
+    console.log("a>b:",a>b);
+    console.log("a <=b:", a<=b);//ture if a<b or a=b
+    console.log("a >=b:", a>=b);//ture if a>b or a=b
+
+    //ternary operator
+    let age = 10;
+    age>18console.log("allowed"); console.log("not allowed");
+    
+    //logical operator
+    let haspassport =true;
+    let hasiv =false;
+
+    console.log("logical and");
+    age>45&& haspassport && hasid?console.log("Allow"):console.log("not allowed");
+    console.log("logical or");
+    age>14|| haspassport || hasid?console.log("Allow"):console.log("not allowed");
+
+    console.log("!haspassport :", !haspassport);
+
+    //concatenation
+    let val1 ="10";
+    let val2 ="20";
+    console.log("val1 +val2:",val1+val2);
+    //concatenation
+    let val3 ="Hello";
+    let val4 ="world";
+    console.log("val3 +val4:",val3+val4);
+
+
+}
+
+//ARRAYS
+//arrays are varible which can hold more than one value and the values in array is stored in continous memory locations
+let a = 10;//variable
+let arr =(10,20,"hello",true,false,underfined,null);//Array
+
+let fruits = ["apple","orange","graps","jackfruit","pappaya","pineapple"];
+console.log("fruits :", furits);
+//Array methords
