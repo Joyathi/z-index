@@ -110,4 +110,18 @@ console.log("window.place");
 
 {
     //Javascript steing methord
+    let str= "Hello";
+    console.log("str :",str);
+
+    let stringLength = str.length;//finds length of string
+    console.log("stringLength :", stringLength)
+     
+    let strTouppercase=str.toUpperCase();//converts all letters in string to uppercase
+    console.log("str :",str);
+    console.log("struppercase :",strTouppercase)
+
+    let strTolowercase=str.toLowerCase();
+    console.log("strTolowercase: ",strTolowercase)
+
+    let trimmedstring=str.trim();//remove space from left and right
 }
