@@ -239,3 +239,105 @@ let arr =(10,20,"hello",true,false,underfined,null);//Array
 let fruits = ["apple","orange","graps","jackfruit","pappaya","pineapple"];
 console.log("fruits :", furits);
 //Array methords
+let 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    let name ="john";
+    let arr =["john",18,70]
+    console.log("typeof(arr):",typeof(arr))
+
+    //objects
+    //A javascript object is an entity stored as key value pairs
+    let deatails ={
+        name : "john"
+        age : 18,
+        mark :70,
+    }
+     
+    console.log("details:",details);
+    console.log("typeof(details) :", typeof(details));
+
+    console.log("name :",details.name);
+    console.log("age :",details.age);
+    console.log("mark :",details.mark);
+
+    //updating value
+    details.age =30;
+    console.log("details :", details)
+
+    //adding new keyvalue pair
+    details.country ="USA"
+    console.log("details :",details);
+
+    //in array we can also pass another array and object as values
+    let fruit =["apple","orange","graps","jackfruit",["pappaya","pineapple"],{country : "india",state : "kerala"}];
+    console.log("fruits :",fruits);
+
+    //Template literals
+    let name = "john";
+    console.log(`name : ${nmae}`);
+
+
+    //Json
+    //json(javascript object Notation) is a lighyweight data iterchange format that is eay for
+      //humans to read and write and easy for machies to parse and generategi
+
+};
+
+   
