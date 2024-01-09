@@ -239,61 +239,44 @@ let arr =(10,20,"hello",true,false,undefined,null);//Array
 let fruits = ["apple","orange","graps","jackfruit","pappaya","pineapple"];
 console.log("fruits :", fruits);
 //Array methords
+let apple = fruits[0];
+console.log(apple);
 
+let pappaya =fruit[4];
+console.log(pappaya);
 
+let nooffruits=fruits.length; //finds the number of elements of an array
+console.log(nooffruits);
 
+let fruitsstring=fruits.join('');//converts array to string
+console.log(fruitsstring);
 
+let grapeIndex = fruits.indexOf("Grapes");//finds the index number of an element
+console.log("grapeIndex :",grapeIndex);
 
+fruits.push("GreenApple");//adds element  to the end of an array
+console.log("fruts :", fruits);
 
+fruits.unshift("strawberry");//adds element to the start of an arry
+console.log("fruits :",fruits);
 
+fruits.pop(); //Remove element from the end of an array
+console.log("fruits :",fruits)
 
+fruits.shift(); //remove element from the start of an array
+console.log("furits :",fruits);
 
+//Replacing element in an array
+fruits[3]= "watermelon";
+console.log("fruits :",fruits);
 
+//splice
+let splicedfruits = fruits.splice(1,4);
+console.log("fruits :",fruits);
+console.log("fruits:",fruits);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+fruits.splice(1,0, "bluebarry");
+console.log("fruits :",fruits);
 
 
 {
@@ -359,6 +342,15 @@ console.log("fruits :", fruits);
           console.log (`data : ${data}`);
           console.log(`typeof(data) : ${typeof(data)}`);
 
+          //converting javascript object to Json
+          let jsonDate=jSON.stringly(data);
+          console.log(`jsonData :${jsonData}`)
+
+          //parsing Json
+          let parsedJsonData = JSON,parse(JsonData);
+          console.log(`parsedjsonData :${parsedJsonData}`)
+          console.log(`typeof(parsedJsonData) : $ {typeof(parsedJsonData)}`)
+
 
 };
 
@@ -369,17 +361,17 @@ console.log("fruits :", fruits);
 let number =[1,2,3,4,5]
 console.log("number :",number)
 
-number.push =6;
+number.push (6);
 console.log("number :", number)
 
-number.shift =1;
+number.shift (1);
 console.log("number :",number)
 
 let result =Array.isArray(number);
 console.log("result :", result)
 
 let index4 =number.indexOf(4);
-console.log("index4:", index4);
+console.log("index of 4:", index4);
 
 
 //object
@@ -389,9 +381,29 @@ let person ={
     age :25,
     city : "new street",
 }
+ console.log("person :",person)
+
+ person.age =30;
+ console.log("person :",person)
+ console.log("age :",person.age)
+
+ person.gender ="male";
+ console.log("person :",person)
+
+ console.log(object.hasown(person,`country`));
+
+ let address ={
+    city : "mycity",
+    street :"no21",
+    house :"Home 101",
+ }
+    let personaldetails ={
+       ...person,
+       ...address
+ }
 
 
-
+ console.log("persona;details :", personaldetails)
 
 
 
