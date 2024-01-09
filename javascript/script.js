@@ -9,8 +9,8 @@ console. log("Hello world, from external javascript");
  
 // variables
 // variables is simply a name of Storage location
-var a;//variable declaration, var-variable scope
-a = 10;//varaible initialization
+var x;//variable declaration, var-variable scope
+x = 10;//varaible initialization
 
 //rules
 /*
@@ -25,11 +25,11 @@ a = 10;//varaible initialization
     //can be declared multiple times in a program
     //not blocked scope
     //hoisted
-    console.log("a :", a);//can access varible a before the line it is declared
-    var a;
-    a=100;
+    console.log("y :", y);//can access varible a before the line it is declared
+    var y;
+    y=100;
 }
-console.log ("a :",a);
+//console.log ("a :",a);
 //block scope
 //{}-block
 {
@@ -81,9 +81,9 @@ console.log("window.place");
     
 
     //boolean values (Either ture or false)
-    let boolture=ture;
-    console.log("boolture: ",boolture);
-    console.log("type of boolture ;",typeof(boolture))
+    let booltrue=true;
+    console.log("boolture: ",booltrue);
+    console.log("type of boolture ;",typeof(booltrue));
 
     let boolfalse= false;
     console.log("boolture:",boolfalse)
@@ -124,28 +124,28 @@ console.log("window.place");
     console.log("strTolowercase: ",strTolowercase)
 
     let trimmedstring = str.trim();//remove space from left and right
-    console.log("trimmedstring:",trriedstring)
+    console.log("trimmedstring:",trimmedstring)
     console.log("trimmedstring length:",trimmedstring.length)
 
     let lefttrimmedstring=str.trim();//remove space from left and right
-    console.log("lefttrimmedstring:",lefttrriedstring)
+    console.log("lefttrimmedstring:",lefttrimmedstring)
     console.log("lefttrimmedstring length:",lefttrimmedstring.length)
 
-    let Righttrimmedstring=str.trim();//remove space from left and right
-    console.log("righttrimmedstring:",righttrriedstring)
+    let righttrimmedstring=str.trim();//remove space from left and right
+    console.log("righttrimmedstring:",righttrimmedstring)
     console.log("righttrimmedstring length:",righttrimmedstring.length)
 
     let substring = str.substring(1,3);
     console.log("substring:",substring);
 
-    letreplacedstring = str.replace("lo","iw");
+    let replacedstring = str.replace("lo","iw");
     console.log("replacedstring:",replacedstring);
 
     console.log("is the string starts with h or not ?", str.startsWith("H"))
     console.log("is the string end with h or not ?", str.startsWith("o"))
 
-    let splittedstring =str.splt (',');//converts string to an array
-    console.log("joinedstring :", joinedstring);
+    let splittedstring =str.split (',');//converts string to an array
+    console.log("splittedstring :", splittedstring);
 
 }
 
@@ -171,7 +171,7 @@ console.log("window.place");
 
     
     //postdecrement
-    let d =--40
+    let d =40
     let postdecrement =--c;
     console.log("postdecrement:",postdecrement);
 
@@ -206,7 +206,7 @@ console.log("window.place");
 
     //ternary operator
     let age = 10;
-    age>18console.log("allowed"); console.log("not allowed");
+    age>18?console.log("Allowed"):console.log("not allowed");
     
     //logical operator
     let haspassport =true;
@@ -233,13 +233,12 @@ console.log("window.place");
 
 //ARRAYS
 //arrays are varible which can hold more than one value and the values in array is stored in continous memory locations
-let a = 10;//variable
-let arr =(10,20,"hello",true,false,underfined,null);//Array
+let a=10;//variable
+let arr =(10,20,"hello",true,false,undefined,null);//Array
 
 let fruits = ["apple","orange","graps","jackfruit","pappaya","pineapple"];
-console.log("fruits :", furits);
+console.log("fruits :", fruits);
 //Array methords
-let 
 
 
 
@@ -298,14 +297,14 @@ let
 
 
 {
-    let name ="john";
-    let arr =["john",18,70]
-    console.log("typeof(arr):",typeof(arr))
+    let names ="john";
+    let arr =["john",18,70];
+    console.log("typeof(arr):",typeof(arr));
 
     //objects
     //A javascript object is an entity stored as key value pairs
-    let deatails ={
-        name : "john"
+    let details ={
+        name : "john",
         age : 18,
         mark :70,
     }
@@ -331,13 +330,68 @@ let
 
     //Template literals
     let name = "john";
-    console.log(`name : ${nmae}`);
+    console.log(`name : ${name}`);
 
 
     //Json
     //json(javascript object Notation) is a lighyweight data iterchange format that is eay for
-      //humans to read and write and easy for machies to parse and generategi
+      //humans to read and write and easy for machies to parse and generate
+
+      let obj =`{
+        "fruit": "jackfruit",
+        "bike" :"hero honda",
+        "car"  : "suzuki",
+          }`;
+       
+
+          console.log("obj : ",obj);
+          console.log("typeof(obj:", typeof(obj));
+          console.log("fruit :",obj.fruit)
+          console.log("bike:",obj.bike)
+          console.log("car :",obj.car)
+
+          let data ={
+            name : "jhon",
+            email :"john@gmail.com",
+            password:"jhone123"
+          }
+
+          console.log (`data : ${data}`);
+          console.log(`typeof(data) : ${typeof(data)}`);
+
 
 };
 
    
+
+//worl 9-1-2024
+
+let number =[1,2,3,4,5]
+console.log("number :",number)
+
+number.push =6;
+console.log("number :", number)
+
+number.shift =1;
+console.log("number :",number)
+
+let result =Array.isArray(number);
+console.log("result :", result)
+
+let index4 =number.indexOf(4);
+console.log("index4:", index4);
+
+
+//object
+
+let person ={
+    name :"manu",
+    age :25,
+    city : "new street",
+}
+
+
+
+
+
+
