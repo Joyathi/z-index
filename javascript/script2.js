@@ -51,3 +51,63 @@ Fibonacci(5);
 //while (2 <5) ->sum = a+b ->sum = 1 + 2 = 3 -> log 3 -> a = 2, b = 3
 //while   (3 <5) ->sum = a+b ->sum = 2 + 3 = 5-> log 3 -> a = 2, b = 4
 //while(5<5) -> false -> loop stops
+
+
+//18-02-2024
+
+//MULTIPLICATION TABLE
+
+
+// function multiplication(){}
+    // let a=1;
+    // console.log(a);
+    // let b = 1;
+    // console.log(b);
+
+    // let sum = 1;
+
+    // // for(a=i; a<=10; a++);
+    // // console.log(sum)
+    // // a=b
+    // b=sum
+
+    // while(sum<limit){
+    //     sum=a*b;
+    //     console.log(sum);
+    //     a=b;
+    //     b=sum;
+
+    // let a=2;
+    // b=1;
+    // c=a*b;
+
+    // for(b=1; b<=10 ; b++)
+
+ //program to reverse a string
+ let str = "Hai";
+
+ let reverse="";
+ for(let i= str.length - i; i >=0 ; i--){
+//i =2 -> ture -> reverse=reverse + str[i] -> reverse = "" str[2] = "" + "i"
+
+    reverse=reverse + str [i];
+ }
+ console.log("reverse : ", reverse)
+
+
+ //Nested loop
+{
+ let str ="";
+ for(let i = 0; i<= 2; i++){
+
+    for(let j = 0 ; j<=i ;j++){
+        str = str + "*";
+    }
+    str = str + '\n';
+ }
+ console.log(str);
+
+ // i = 0 -> true->
+        // j=0
+
+}

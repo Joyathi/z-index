@@ -90,3 +90,15 @@ function updateArr(arr){
     isAdmin :true,
     
  }
+
+
+ //program to reverse a string
+ let str = "Hai";
+
+ let reverse="";
+ for(let i= str.length - i; i >=0 ; i--){
+//i =2 -> ture -> reverse=reverse + str[i] -> reverse = "" str[2] = "" + "i"
+
+    reverse=reverse + str [i];
+ }
+ console.log("reverse : ", reverse)
