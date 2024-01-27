@@ -1,5 +1,5 @@
-// let btn = document.getElementById("btn");
-// console.log("btn: ",btn);
+let btn = document.getElementById("btn");
+console.log("btn: ",btn);
 
 // // btn.addEventListener('click',function (){
 // //     let value1 = Number(document.getElementById('value').value);
@@ -27,7 +27,7 @@ function handleClick(){
     console.log("value1 :",value1);
     console.log("typeof(value1:",typeof(value1))
 
-    let value2=Number()(document.getElementById('value').value);
+    let value2=Number(document.getElementById('value').value);
     console.log("value1 :",value2);
     console.log("typeof(value1:",typeof(value2))
 
@@ -42,14 +42,19 @@ function handleClick(){
 }
 
 
-setTimeout(function(){
-    alert("From setTimeout...")
-    },5000);
+// setTimeout(function(){
+//     alert("From setTimeout...")
+//     },5000);
 
-    setInterval(function (){
-        i++;
-        console.log("from setInterval");
-    },2000);
+    // setInterval(function (){
+    //     console.log("from setInterval");
+    // },2000);
 
     let i = 0;
-    let x = setInterval(function)
+    let x = setInterval(function (){
+        i++; 
+        if (i==5){console.log ("add")
+          clearInterval(x)
+        }
+    },1000)
+    
