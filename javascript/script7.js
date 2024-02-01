@@ -36,13 +36,19 @@
  console.log ("street :" ,street);
  console.log ("city :",city);
  console.log ("houseNo :",houseNo);
-
+{
  let [fruit1,fruit2,fruit3] = fruits;
  console.log ("fruit1 ;",fruit1);
  console.log ("fruit2 ;",fruit2);
  console.log ("fruit3 ;",fruit3);
 
- 
+
+ let [fruit,fruit5,fruit6] = fruits;
+ console.log ("fruit4 ;",fruit4);
+ console.log ("fruit5 ;",fruit5);
+ console.log ("fruit6 ;",fruit6);
+
+}
  
  //Array function
  let cars = ["Benz","BMW","Maruthi","Audi","BMW"];
