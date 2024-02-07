@@ -11,12 +11,27 @@ h1{
     border-top-left-radius: 0cqw;
     margin-top: 250px;
 }
-.number{
-    margin-left:100px ;
-    font-size: 70px;
+#number{
+    text-align: center;
+    margin-left:470px ;
+    font-size: 100px;
 }
 .container{
+    text-align: center;
     width: 450px;
     height: 450px;
     margin-left: 430px;
 }
+#increasebtn  {
+    
+text-align: center;
+}
+#resetbtn{
+  
+    text-align: center;
+}
+#decreasebtn{
+    text-align: center;
+}
+
+

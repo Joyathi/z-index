@@ -1,12 +1,15 @@
-const decreasebtn= document.getElementById("decreasebtn");
-const resetbtn = document.getElementById("resetbtn");
-const increasebtn=document.getElementById("increasebtn");
-const countlabel=document.getElementById("countlabel");
+let number =0
+number =document.getElementById ('number')
 
-increasebtn.onclick=function(){
-    count++;
-    countlabel.textcontent =count;
-}
-decreasebtn.onclick=function(){
-    count--;
-    countlabel.textcontent =count;}
+decreasebtn= document.getElementById('decreasebtn')
+decreasetbtn.addEventListener('click',()=>{
+ counter--;
+ number.innerHTML =counter;
+})
+
+
+increasebtn= document.getElementById('increasebtn')
+increasetbtn.addEventListener('click',()=>{
+ counter++;
+ number.innerHTML =counter;
+})
