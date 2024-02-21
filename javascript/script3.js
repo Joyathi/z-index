@@ -36,6 +36,8 @@ console.log("maxValue : ", maxValue)
 
 
 
+//25/01/2024
+
 function countDown(n){
         
     if (n==0){
@@ -67,7 +69,7 @@ console.log('headings[0] :',heading[0].textcontent);
 console.log('headings[0] :',heading[0]);
 
 let containers
-console.log("divElement1 :",divElement1.textcontent);\
+console.log("divElement1 :",divElement1.textcontent);
 
 
 let button = Document.getElementByid('id');
