@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    
+    padding: px;
+    background-color: black;
+    color: white;
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+  
+}
+.sony{
+    display: flex;
+     margin-left:1465px;
+     size: 45px;
+}
+.containerr{
+    display: flex;
+     /* justify-content: center;  */
+     background-color: white;
+
+    height: 80px;
+    position: fixed;
+    /* align-items: center; */
+    /* margin-left:10px; */
+}
+
+.image{
+    display: flex;
+    /* margin-right:1050px;  */
+     height: 10px;
+    width: 10px;
+
+}
+
+.game{
+    margin-left: 50px;
+    margin-top: 13px;
+}
+.ps5{
+    margin-left:20px ;
+    margin-top: 13px;
+}
+.ps4{
+    margin-left: 20px;
+    margin-top: 13px;
+
+}
+.services{
+    margin-left:20px ;
+    margin-top: 13px;
+}
+.accessories{
+    margin-left:20px ;
+    margin-top: 13px;
+}
+.news{
+    margin-left:20px ;
+    margin-top: 13px;
+}
+.store{
+    margin-left:20px ;
+    margin-top: 13px;
+}
+.sign{
+    margin-left: 850px;
+    background-color: blue;
+    color: white;
+    width: 80px;
+    border-radius: 15px;
+    margin-top: 13px;
+    height: 20px;
+    
+}
+.search{
+    margin-left: 20px;
+    margin-top: 13px;
+}
+
+.containerrr{
+    display: flex;
+    height: auto;
+    margin-top: 25px;
+}
+.play{
+    margin-left: 38px;
+    border-radius: 10px;
+}
+ .play1{
+    margin-left: 38px;
+    border-radius: 10px;
+ }
+ .play2{
+    margin-left: 38px;
+    border-radius: 10px;
+ }
+ .play3{
+    margin-left: 38px;
+    border-radius: 10px;
+ }
+ .play4{
+    margin-left: 38px;
+    border-radius: 10px;
+ }
+ .platform{
+    margin-top: 70px;
+    margin-left: 80px;
+
+ }
+ .h1{
+    height: 10px;
+ }
+
+ 
+ /* .destney{
+    margin-top: 50px;
+    margin-left: 80px; */
+    
+ 
+
+ .cam{
+    height: 30px;
+    color: rgb(28, 28, 101);
+
+ }
+ /* .add{
+    height: 10px;
+    width: 10px;
+ } */
+
+ .class{
+    margin-left: 80px;
+    margin-top: 60px;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    height: 26px;
+ }
+ .destney{
+    margin-top: 50px;
+    margin-left: 100px;
+ }
