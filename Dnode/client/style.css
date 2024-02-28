@@ -1,0 +1,13 @@
+
+body{
+    background-color: orange;
+}
+ 
+.form{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+    font-size: larger;
+    
+}
