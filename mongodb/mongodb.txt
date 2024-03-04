@@ -1,0 +1,104 @@
+mongo - open a connection to the mongo instance
+show dbs - show all database
+use db-name - create and switch to the database
+db-prints current database
+db.dropDatabase() - Delete the current database
+
+show- collections - show all collections in database
+db.createCollection ("users") - createa collection with name users
+
+CRUD - Creat Read update Delete
+
+//Create
+db.users.insertOne({name :"Rahul"})//Creats a new document inside the 'users' collection
+db.users.insertOne({age :"35"})
+
+db.users.insertMany([{name: "Rahul"}, {name : "Kyle"}])//creates multiple new documents inside the "users" collection
+
+{
+    name :"abc",
+    age :"18",
+}
+
+db.user.insertOne({firstName :"jhone",
+lastName :"King",
+salary :"34000",
+DOB :new Date ('Mar 25 ,2001'),
+skills :["Angular","React","mongoDB"],
+adderss:{
+    street:"upper street",
+    house:"No 1",
+    city:"New York",
+    country:"USA"
+}});
+
+//read
+db.users.find()// Get all documents from user's collection
+
+db.users.find(<filter object>) //Finds all documents that matches the filter object
+db.users.find({age : "35"})
+
+db.users.find(<filter object>) // Finds all documents that matches the object but returns the files specified in the select object
+db.users.find({age :"35"},{name :1,_id :0})
+
+db.users.findOne({name : "Rahul"})// only returns the first document that matches the filter object
+
+db.users.countDocuments(<filter object>)// returns documents matching the filter object . if filter object returns all documents count
+
+//update
+db.users.updateOne({name : "Rahul"},{$set : {name : "Rahul1"}})// Replace Rahul, considers only the first match
+
+db.users.updateMany({name : "Rahul1"},{$set : {name : "Rahul2"}})//Replace  Rahul1 with Rahul2, considers all the matches
+ 
+ db.users.updateMany({age :35},{sinc :{age :5}})// increments all age 35 values to 40 by adding 5
+
+ db.users.replaceOne({name :"Rahul2"},{name :"rahul3"});//Replace the first match, replace the complete document instead of replacing the filed
+
+ //Delete
+ db.users.deleteOne({name : "Rahul3"})//deletes first document that matches the filter object
+ db.users.DeleteMany({age :75}) //Deletes all document matching the filter object
+
+ //Additional filter object
+ db.users.find({name :{$eq :"jhon"}}) //Get all the users with the name jhon
+
+ db.users.find({name :{$ne :"jhon"}}) //Get all the users whose name no equal to jhon
+
+ db.users.find({age :{$gt:12}})//get all the users whose age greater than 12
+
+ db.users.find({age :{$gte:10}})//get all the users whose age greater than 10
+
+ db.users.find({age :{$lt:10}})//get all the users whose age less than 10
+
+ db.users.find({age :{$lte:12}})//get all the users whose age less than or equal to 10
+
+
+ db.users.find({name :{$in :[""Riya","]}})//Get all the users with the name of "Riya" and "jhon"
+ db.users.find({name :{$nin :[""Riya","]}})//Get all the users that does have the name of "Riya" and "jhon"
+ db.users.find({$and :[{name : Riya},{age :10}]})//Get all the users with name "Riya" and age 10
+ db.users.find({$or :[{name : Riya},{age :15}]})//Get all the users with name "Riya" or age 15
+ db.users.find({name :{$not : {$eq : "Riya"}}})//Get all users the name other than "Riya"
+ db.users.find({age :{$exists :ture}})//Get all the users having an age filed
+ db.users.find({$expr : {$gt: ["$age","$min_age"]}}) //Gets all the users having their age greater than min_age
+
+
+ //Additional update objects
+
+ db.users.updateOne({age :15},{$set :{name "Hi"}})//updates the name of the first user with age of 15 to the value "Hi"
+ db.users.updateOne({age :15},{$inc :{age "5"}}) //Add 5 to the age of the first user with the age of 10
+ db.users.updateMany({},{$rename :{age"Years"}})//Rename the field age to years of all the users
+ db.users.updateOne({age :15},{$unset :{age ""}})//Remove the age field from the first user with age of 15
+ db.users.updateany({},{$push :{social_medias :"Instagram"}})//Add "Instagram" to the "social_medias" array for all users
+ db.users.updateany({},{$pull :{social_medias :"Instagram"}})//Remove "Instagram" from the "social_medias" array from all users
+
+ //Read modifiers
+
+ db.users.find().sort({name :1,age :-1})//get allm users sorted by name in alphabetical order and if any names are the same sort by age in revers order
+ db.users.find().limit(2)//Only returns the first 2 users
+ db.users.find().skip(4)//skip the first 4 users when returning the result. Skip and limit are combined for applying pagination
+
+
+
+
+
+
+
