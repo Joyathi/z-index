@@ -50,7 +50,7 @@ const server = http.createServer((req, res) => {
         res.end(fs.readFileSync('../client/script.js'));
     }
 
-    if (req.methord === "POST" && parsed_url.pathname === "/submit") {
+    if (req.method === "POST" && parsed_url.pathname === "/submit") {
 
         let body = "";
 
@@ -123,3 +123,5 @@ connect()
             console.log(`Server running at http://localhost:${port}`);
         })
     })
+
+
