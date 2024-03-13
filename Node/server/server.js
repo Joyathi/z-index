@@ -111,6 +111,178 @@ const server = http.createServer((req, res) => {
 });
 
 
+//Get
+
+if (req.method ==="GET" && parsed_url.pathname ==="/getdata") async()
+ let datas = await collection.find().toArray();
+
+ if(datas){
+    let response ={
+     
+           "success": true,
+            statusCode: 200,
+            data: datas,
+            message: "success"
+    }
+    let json_response = JSON.stringify(response);
+
+    res.writeHead(200, {'content-type':'text/json'});
+    res.end(json_response);
+
+}else{
+    let response ={
+     
+        "success": true,
+         statusCode: 200,
+         data: datas,
+         message: "success"
+ }
+    let json_response = JSON.stringify(response);
+
+    res.writeHead(200, {'content-Type' : 'text/json'});
+    }
+ 
+
+
+
+//update
+if (req.method === "Put" && parsed_url.pathname === "/update") {
+    let body = "";
+
+    req.on('data', (chunks) => {
+        body += chunks.toString();
+    });
+
+    req.on("end", async () => {
+        let formDatas = querystring.parse(body);
+      
+        const updateQuery ={_id :formDatas._id};
+        const updateData ={
+            $set :{
+                name: formDatas.name,
+                email: formDatas.email,
+                password:formDatas.password
+            }
+        };
+
+
+        //inserting formDatas to the database
+        await collection.updateOne(updateQuery,updateData)
+            .then((message) => {
+                if(XPathResult.modification >0){
+                console.log("Document inserted successfully");
+
+                let response = {
+                    success: true,
+                    statusCode: 200,
+                    data: formDatas,
+                    message: "FormDatas submitted successfully"
+
+                };
+          
+
+        let json_response = JSON.stringify(response);
+        res.writeHead(200, { "content-Type": "text/json" })
+        res.end(json_response)
+            }else{
+                console.log("Document not found");
+                
+            let response = {
+                success: false,
+                statusCode: 400,
+                data: formDatas,
+                message: "Document not found"
+            };
+            let json_response = JSON.stringify(response);
+            res.writeHead(response.statusCode, { "content-Type": "application/json" })
+            }
+    })
+        .catch((error) => {
+            console.log("Document insertion failed");
+
+            let response = {
+                success: false,
+                statusCode: 400,
+                data: formDatas,
+                message: "Failed to update document"
+            }
+            let json_response = JSON.stringify(response);
+            console.log("json_response :", json_response)
+
+            res.writeHead(response.statusCode, { "content-Type": "application/json" })
+            res.end(json_response)
+        });
+
+    })
+}
+
+//Delete
+
+if (req.method === "DELETE" && parsed_url.pathname === "/delete") {
+    let body = "";
+
+    req.on('data', (chunks) => {
+        body += chunks.toString();
+    });
+
+    req.on("end", async () => {
+        let formDatas = querystring.parse(body);
+      
+        const deleteQuery7 = {_id :formDatas._id};
+        
+
+        //inserting formDatas to the database
+        await collection.deleteOne(deleteteQuery)
+            .then((result) => {
+                if(result.deletedcount >0){
+                console.log("Document deleted successfully");
+
+                let response = {
+                    success: true,
+                    statusCode: 200,
+                    data: formDatas,
+                    message: "FormDatas deleted successfully"
+
+                };
+          
+
+        let json_response = JSON.stringify(response);
+        res.writeHead(200, { "content-Type": "text/json" })
+        res.end(json_response)
+            }else{
+                console.log("Document not found");
+                
+            let response = {
+                success: false,
+                statusCode: 400,
+                data: formDatas,
+                message: "Document not found"
+            };
+            let json_response = JSON.stringify(response);
+            res.writeHead(response.statusCode, { "content-Type": "application/json" })
+            res.end(json_response);
+        }
+    })
+        .catch((error) => {
+            console.log("Document insertion failed");
+
+            let response = {
+                success: false,
+                statusCode: 400,
+                data: formDatas,
+                message: "Failed to delete document"
+            }
+            let json_response = JSON.stringify(response);
+            res.writeHead(response.statusCode, { "content-Type": "application/json" })
+            res.end(json_response)
+        });
+
+    })
+}
+
+
+
+
 connect()
     .then((message) => {
         console.log("message :", message);
