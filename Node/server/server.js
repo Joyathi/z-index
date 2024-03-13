@@ -25,7 +25,7 @@ async function connect() {
 
 
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
 
     const db = client.db(dbName);
     const collection = db.collection(collName);
@@ -108,12 +108,12 @@ const server = http.createServer((req, res) => {
         })
     }
 
-});
+
 
 
 //Get
 
-if (req.method ==="GET" && parsed_url.pathname ==="/getdata") async()
+if (req.method ==="GET" && parsed_url.pathname ==="/getdata") {
  let datas = await collection.find().toArray();
 
  if(datas){
@@ -142,7 +142,7 @@ if (req.method ==="GET" && parsed_url.pathname ==="/getdata") async()
     res.writeHead(200, {'content-Type' : 'text/json'});
     }
  
-
+}
 
 
 //update
@@ -279,7 +279,7 @@ if (req.method === "DELETE" && parsed_url.pathname === "/delete") {
 
     })
 }
-
+});
 
 
 
