@@ -3,7 +3,7 @@ const url = require('url');
 const port = 3000;
 const fs = require('fs');
 const querystring = require('querystring');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const { error } = require('console');
 
 //connection URL
@@ -148,9 +148,23 @@ if (req.method ==="GET" && parsed_url.pathname ==="/getdata") {
 //update
 if (req.method === "Put" && parsed_url.pathname === "/update") {
     let body = "";
-
+    let id;
+    let updateData;
+    
     req.on('data', (chunks) => {
-        body += chunks.toString();
+        console.log("chunks:",chunks);
+        let datas=chunks.toString();
+        console.log("datas:",datas);
+        console.log("typeofdata:",typeof(datas))
+        //string (string to object)
+        body=JSON.parse(datas);
+        console.log("body:",body);
+        console.log("type of body:",typeof(body))
+
+        //object
+        id = body.id;
+        console.log("id:",id);
+        console.log("tyoe")
     });
 
     req.on("end", async () => {
@@ -226,28 +240,32 @@ if (req.method === "DELETE" && parsed_url.pathname === "/delete") {
     });
 
     req.on("end", async () => {
-        let formDatas = querystring.parse(body);
+        console.log("body:",body)
+        let parseDatas = JSON.parse(body);
+        console.log("parsedata",parseDatas)
       
-        const deleteQuery7 = {_id :formDatas._id};
+       let id=new ObjectId(parseDatas._id)
+       const deleteteQuery={_id :id};
+       console.log("id:",id);
         
 
         //inserting formDatas to the database
         await collection.deleteOne(deleteteQuery)
             .then((result) => {
-                if(result.deletedcount >0){
+                if(result.deletedCount >0){
                 console.log("Document deleted successfully");
 
                 let response = {
                     success: true,
                     statusCode: 200,
-                    data: formDatas,
+                    // data: formDatas,
                     message: "FormDatas deleted successfully"
 
                 };
           
 
         let json_response = JSON.stringify(response);
-        res.writeHead(200, { "content-Type": "text/json" })
+        res.writeHead(200, { "content-Type": "application/json" })
         res.end(json_response)
             }else{
                 console.log("Document not found");
@@ -255,7 +273,7 @@ if (req.method === "DELETE" && parsed_url.pathname === "/delete") {
             let response = {
                 success: false,
                 statusCode: 400,
-                data: formDatas,
+                // data: formDatas,
                 message: "Document not found"
             };
             let json_response = JSON.stringify(response);
@@ -264,16 +282,16 @@ if (req.method === "DELETE" && parsed_url.pathname === "/delete") {
         }
     })
         .catch((error) => {
-            console.log("Document insertion failed");
+            console.log("error deleting documnet:",error);
 
             let response = {
                 success: false,
                 statusCode: 400,
-                data: formDatas,
+                // data: formDatas,
                 message: "Failed to delete document"
-            }
+            };
             let json_response = JSON.stringify(response);
-            res.writeHead(response.statusCode, { "content-Type": "application/json" })
+            res.writeHead(400, { "content-Type": "application/json" })
             res.end(json_response)
         });
 
