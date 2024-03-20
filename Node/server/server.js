@@ -37,18 +37,25 @@ const server = http.createServer(async (req, res) => {
     console.log("parsed_url :", parsed_url);
 
     if (parsed_url.pathname === '/' && req.method === "GET") {
-
         res.writeHead(200, { 'content-Type': 'text/html' });
         res.end(fs.readFileSync('../client/index.html'));
-
-    } else if (parsed_url.pathname === "/style.css" && req.methord === 'GET') {
+    } else if (parsed_url.pathname === "/style.css" && req.method === 'GET') {
         res.writeHead(200, { 'Content-Type': "text/css" });
         res.end(fs.readFileSync('../client/style.css'));
-
-    } else if (parsed_url.pathname === '/script.js' && req.methord === 'GET') {
+    } else if (parsed_url.pathname === '/script.js' && req.method === 'GET') {
         res.writeHead(200, { 'Content-Type': "text/javascript" });
         res.end(fs.readFileSync('../client/script.js'));
+    }else if (parsed_url.pathname === '/addData.html' && req.method === 'GET') {
+        res.writeHead(200, { 'Content-Type': "text/html" });
+        res.end(fs.readFileSync('../client/script.js'));
+    }else if (parsed_url.pathname === '/getdata.html' && req.method === 'GET') {
+        res.writeHead(200, { 'Content-Type': "text/html" });
+        res.end(fs.readFileSync('../client/script.js'));
+    }else if (parsed_url.pathname === '/script.js' && req.method === 'GET') {
+        res.writeHead(200, { 'Content-Type': "text/javascript " });
+        res.end(fs.readFileSync('../client/script.js'));
     }
+
 
     if (req.method === "POST" && parsed_url.pathname === "/submit") {
 
@@ -145,94 +152,6 @@ if (req.method ==="GET" && parsed_url.pathname ==="/getdata") {
 }
 
 
-//update
-// if (req.method === "Put" && parsed_url.pathname === "/update") {
-//     let body = "";
-//     let id;
-//     let updateData;
-    
-//     req.on('data', (chunks) => {
-//         console.log("chunks:",chunks);
-//         let datas=chunks.toString();
-//         console.log("datas:",datas);
-//         console.log("typeofdata:",typeof(datas))
-//         //string (string to object)
-//         body=JSON.parse(datas);
-//         console.log("body:",body);
-//         console.log("type of body:",typeof(body))
-
-//         //object
-//         id = body.id;
-//         console.log("id:",id);
-//         console.log("type(_id):",typeof(_id));
-
-        
-//     });
-
-//     req.on("end", async () => {
-//         let formDatas = querystring.parse(body);
-      
-//         const updateQuery ={_id :formDatas._id};
-//         const updateData ={
-//             $set :{
-//                 name: formDatas.name,
-//                 email: formDatas.email,
-//                 password:formDatas.password
-//             }
-//         };
-
-
-//         //inserting formDatas to the database
-//         await collection.updateOne(updateQuery,updateData)
-//             .then((message) => {
-//                 if(XPathResult.modification >0){
-//                 console.log("Document inserted successfully");
-
-//                 let response = {
-//                     success: true,
-//                     statusCode: 200,
-//                     data: formDatas,
-//                     message: "FormDatas submitted successfully"
-
-//                 };
-          
-
-//         let json_response = JSON.stringify(response);
-//         res.writeHead(200, { "content-Type": "text/json" })
-//         res.end(json_response)
-//             }else{
-//                 console.log("Document not found");
-                
-//             let response = {
-//                 success: false,
-//                 statusCode: 400,
-//                 data: formDatas,
-//                 message: "Document not found"
-//             };
-//             let json_response = JSON.stringify(response);
-//             res.writeHead(response.statusCode, { "content-Type": "application/json" })
-//             }
-//     })
-//         .catch((error) => {
-//             console.log("Document insertion failed");
-
-//             let response = {
-//                 success: false,
-//                 statusCode: 400,
-//                 data: formDatas,
-//                 message: "Failed to update document"
-//             }
-//             let json_response = JSON.stringify(response);
-//             console.log("json_response :", json_response)
-
-//             res.writeHead(response.statusCode, { "content-Type": "application/json" })
-//             res.end(json_response)
-//         });
-
-//     })
-// }
-
-
 //Update
 if (req.method === "PUT" && parsed_url.pathname === "/update") {
     let body;
@@ -248,6 +167,7 @@ if (req.method === "PUT" && parsed_url.pathname === "/update") {
         body = JSON.parse(datas);
         console.log("body : ", body);
         console.log("type of body :", typeof (body)) //object
+
 
 
         id = body.id;
@@ -283,7 +203,7 @@ if (req.method === "PUT" && parsed_url.pathname === "/update") {
             })
             .catch((error) => {
                 console.log("Error updating document:", error);
-                res.writeHead(404, { "Content-Type": "application/json" });
+                res.writeHead(400, { "Content-Type": "application/json" });
                 res.end("failed!!");
             });
         });
