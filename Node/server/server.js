@@ -146,89 +146,149 @@ if (req.method ==="GET" && parsed_url.pathname ==="/getdata") {
 
 
 //update
-if (req.method === "Put" && parsed_url.pathname === "/update") {
-    let body = "";
-    let id;
-    let updateData;
+// if (req.method === "Put" && parsed_url.pathname === "/update") {
+//     let body = "";
+//     let id;
+//     let updateData;
     
-    req.on('data', (chunks) => {
-        console.log("chunks:",chunks);
-        let datas=chunks.toString();
-        console.log("datas:",datas);
-        console.log("typeofdata:",typeof(datas))
-        //string (string to object)
-        body=JSON.parse(datas);
-        console.log("body:",body);
-        console.log("type of body:",typeof(body))
+//     req.on('data', (chunks) => {
+//         console.log("chunks:",chunks);
+//         let datas=chunks.toString();
+//         console.log("datas:",datas);
+//         console.log("typeofdata:",typeof(datas))
+//         //string (string to object)
+//         body=JSON.parse(datas);
+//         console.log("body:",body);
+//         console.log("type of body:",typeof(body))
 
-        //object
-        id = body.id;
-        console.log("id:",id);
-        console.log("tyoe")
-    });
+//         //object
+//         id = body.id;
+//         console.log("id:",id);
+//         console.log("type(_id):",typeof(_id));
 
-    req.on("end", async () => {
-        let formDatas = querystring.parse(body);
+        
+//     });
+
+//     req.on("end", async () => {
+//         let formDatas = querystring.parse(body);
       
-        const updateQuery ={_id :formDatas._id};
-        const updateData ={
-            $set :{
-                name: formDatas.name,
-                email: formDatas.email,
-                password:formDatas.password
-            }
-        };
+//         const updateQuery ={_id :formDatas._id};
+//         const updateData ={
+//             $set :{
+//                 name: formDatas.name,
+//                 email: formDatas.email,
+//                 password:formDatas.password
+//             }
+//         };
 
 
-        //inserting formDatas to the database
-        await collection.updateOne(updateQuery,updateData)
-            .then((message) => {
-                if(XPathResult.modification >0){
-                console.log("Document inserted successfully");
+//         //inserting formDatas to the database
+//         await collection.updateOne(updateQuery,updateData)
+//             .then((message) => {
+//                 if(XPathResult.modification >0){
+//                 console.log("Document inserted successfully");
 
-                let response = {
-                    success: true,
-                    statusCode: 200,
-                    data: formDatas,
-                    message: "FormDatas submitted successfully"
+//                 let response = {
+//                     success: true,
+//                     statusCode: 200,
+//                     data: formDatas,
+//                     message: "FormDatas submitted successfully"
 
-                };
+//                 };
           
 
-        let json_response = JSON.stringify(response);
-        res.writeHead(200, { "content-Type": "text/json" })
-        res.end(json_response)
-            }else{
-                console.log("Document not found");
+//         let json_response = JSON.stringify(response);
+//         res.writeHead(200, { "content-Type": "text/json" })
+//         res.end(json_response)
+//             }else{
+//                 console.log("Document not found");
                 
-            let response = {
-                success: false,
-                statusCode: 400,
-                data: formDatas,
-                message: "Document not found"
-            };
-            let json_response = JSON.stringify(response);
-            res.writeHead(response.statusCode, { "content-Type": "application/json" })
-            }
-    })
-        .catch((error) => {
-            console.log("Document insertion failed");
+//             let response = {
+//                 success: false,
+//                 statusCode: 400,
+//                 data: formDatas,
+//                 message: "Document not found"
+//             };
+//             let json_response = JSON.stringify(response);
+//             res.writeHead(response.statusCode, { "content-Type": "application/json" })
+//             }
+//     })
+//         .catch((error) => {
+//             console.log("Document insertion failed");
 
-            let response = {
-                success: false,
-                statusCode: 400,
-                data: formDatas,
-                message: "Failed to update document"
-            }
-            let json_response = JSON.stringify(response);
-            console.log("json_response :", json_response)
+//             let response = {
+//                 success: false,
+//                 statusCode: 400,
+//                 data: formDatas,
+//                 message: "Failed to update document"
+//             }
+//             let json_response = JSON.stringify(response);
+//             console.log("json_response :", json_response)
 
-            res.writeHead(response.statusCode, { "content-Type": "application/json" })
-            res.end(json_response)
+//             res.writeHead(response.statusCode, { "content-Type": "application/json" })
+//             res.end(json_response)
+//         });
+
+//     })
+// }
+
+
+//Update
+if (req.method === "PUT" && parsed_url.pathname === "/update") {
+    let body;
+    let id;
+    let updateData;
+    req.on('data', (chunks) => {
+        console.log("chunks : ", chunks);
+        let datas = chunks.toString();
+        console.log("datas : ", datas);
+        console.log("type of datas :", typeof (datas)) //string
+
+        //string to object
+        body = JSON.parse(datas);
+        console.log("body : ", body);
+        console.log("type of body :", typeof (body)) //object
+
+
+        id = body.id;
+        console.log("id : ", id);
+        console.log("type (id) : ", typeof (id))
+
+        let _id = new ObjectId(id);
+        console.log("_id : ", _id);
+        console.log("type (_id) : ", typeof (_id));
+
+        updateData = {
+            name: body.name,
+            email: body.email,
+            password: body.password,
+        };
+
+        console.log("updateData : ", updateData)
+    });
+
+    req.on('end', async () => {
+
+        console.log("id : ", id);
+        console.log("typeOf(id) : ", typeof(id))
+        let _id = new ObjectId(id);     //Converting string id to mongodb object id
+        console.log("_id : ", _id);
+        console.log("type (_id) : ", typeof(_id));
+
+        await collection.updateOne({_id},{$set : updateData})
+            .then((messaage) => {
+                console.log("Document updated successfully", messaage);
+                res.writeHead(200, { "Content-Type": "application/json" });
+                res.end('Success!');  
+            })
+            .catch((error) => {
+                console.log("Error updating document:", error);
+                res.writeHead(404, { "Content-Type": "application/json" });
+                res.end("failed!!");
+            });
         });
+    }
 
-    })
-}
 
 //Delete
 
